@@ -1,3 +1,19 @@
-{
-
+﻿{
+  "BasicRoles": [
+    {
+      "Name": "Junior",
+      "TranslatedName": "עובד זוטר",
+      "Percentage": 0
+    },
+    {
+      "Name": "Senior",
+      "TranslatedName": "עובד בכיר",
+      "Percentage": 5
+    },
+    {
+      "Name": "Professional",
+      "TranslatedName": "מומחה",
+      "Percentage": 30
+    }
+  ]
 }
