@@ -6,7 +6,7 @@ using System.Text;
 
 namespace HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles
 {
-    class Manager : IRole
+    public class Manager : IRole
     {
         public Title Title { get; private set; }
 

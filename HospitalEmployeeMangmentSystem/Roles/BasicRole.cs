@@ -9,7 +9,6 @@ namespace HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles
     public class BasicRole : IRole
     {
         public Title Title { get; private set; }
-        public bool IsBasicRole { get; private set; } = true;
         private int _percentage;
         public BasicRole(int Percentage, string Name, string TranslatedName)
         {

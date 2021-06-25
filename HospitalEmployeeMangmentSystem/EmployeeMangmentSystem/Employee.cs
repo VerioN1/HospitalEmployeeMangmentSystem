@@ -7,12 +7,12 @@ namespace HospitalEmployeeMangmentSystem
 {
     public class Employee : IEmployee
     {
-        private string _name { get; }
-        private string _id { get; }
+        public string Name { get; private set; }
+        public string Id { get; private set; }
         public Employee(string Name, string Id)
         {
-            this._name = Name;
-            this._id = Id;
+            this.Name = Name;
+            this.Id = Id;
         }
         public Employee GetEmployee(string Id)
         {
