@@ -1,24 +1,18 @@
-﻿using HospitalEmployeeMangmentSystem.Roles.Operations;
-using HospitalEmployeeMangmentSystem.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles
 {
-    public class Manager : IRole
+    public class Manager : IRolePureWage
     {
-        public Title Title { get; private set; }
-        public int MonthlyWage { get; private set; }
-        public Manager(Title title, int monthlyWage)
+        private static Manager _instance = new Manager();
+        private Manager() { }
+        public static Manager Instance { get => _instance; }
+        public double CalculateRoleWage(IJob job)
         {
-            this.MonthlyWage = monthlyWage;
-            this.Title = title;
+            return job.ManagerSalary;
         }
 
-        public void execute(IOperation operation)
-        {
-            operation.Apply(this);
-        }
     }
 }

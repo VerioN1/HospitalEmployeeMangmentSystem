@@ -1,14 +1,15 @@
 ﻿using HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles;
-using HospitalEmployeeMangmentSystem.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace HospitalEmployeeMangmentSystem.Job
+namespace HospitalEmployeeMangmentSystem
 {
     public interface IJob
     {
-        Title Title { get; }
-        ICollection<IRole> Roles { get; }
+        string Title { get; }
+        int InRiskBonus { get; }
+        int ManagerSalary { get; }
+        IList<string> Roles { get; }
     }
 }

@@ -1,23 +1,18 @@
-﻿using HospitalEmployeeMangmentSystem.Roles.Operations;
-using HospitalEmployeeMangmentSystem.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles
 {
-    public class InRisk : IRole
+    public class InRisk : IRolePureWageBonus
     {
-        public Title Title { get; private set; }
-        private int _percentage { get; }
-        public InRisk(int Percentage)
+        private static InRisk _instance = new InRisk();
+        private InRisk() { }
+        public static InRisk Instance { get => _instance; }
+        public double CalculateRoleWage(IJob job, int CurrentSalary)
         {
-            this._percentage = Percentage;
-        }
-
-        public void execute(IOperation operation)
-        {
-            operation.Apply(this);
+            var percantage = job.InRiskBonus / 100;
+            return CurrentSalary * percantage;
         }
     }
 }

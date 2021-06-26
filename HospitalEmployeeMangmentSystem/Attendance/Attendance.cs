@@ -6,9 +6,14 @@ namespace HospitalEmployeeMangmentSystem.Attendance
 {
     public class Attendance : IAttendance
     {
-        public string Attendance_EmployeeId => throw new NotImplementedException();
+        public string Attendance_EmployeeId { get; private set; }
 
-        public int CurrentMonthAttendedHoursAmount => throw new NotImplementedException();
+        private int CurrentMonthAttendedHoursAmount { get; }
+        public Attendance(string EmployeeId)
+        {
+            this.Attendance_EmployeeId = EmployeeId;
+            this.CurrentMonthAttendedHoursAmount = 10;
+        }
 
         public void CheckIn()
         {
@@ -20,9 +25,9 @@ namespace HospitalEmployeeMangmentSystem.Attendance
             throw new NotImplementedException();
         }
 
-        public void GetEmployeeMonthHoursAttendance()
+        public int GetEmployeeAttendanceAmount()
         {
-            throw new NotImplementedException();
+            return CurrentMonthAttendedHoursAmount;
         }
     }
 }

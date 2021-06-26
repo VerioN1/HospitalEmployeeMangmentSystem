@@ -1,35 +1,33 @@
 ﻿{
-  "Roles":{
-    "BasicRoles": [
-      {
-        "Name": "Junior",
-        "TranslatedName": "עובד זוטר",
-        "Percentage": 0
+    "Jobs": {
+      "Cleaner": {
+        "Roles": [ "Junior" ]
       },
-      {
-        "Name": "Senior",
-        "TranslatedName": "עובד בכיר",
-        "Percentage": 5
+      "Toxic_Material_Cleaner": {
+        "Roles": [ "InRisk", "DecisionMaker", "Professional", "Junior" ],
+        "InRiskBonus" : 20
       },
-      {
-        "Name": "Professional",
-        "TranslatedName": "מומחה",
-        "Percentage": 30
+      "Senior_Cleaner": {
+        "Roles": [ "Senior" ]
+      },
+      "Shift_Manager_Cleaner": {
+        "Roles": [ "DecisionMaker" ]
+      },
+      "Cooker": {
+        "Roles": [ "Senior" ]
+      },
+      "Sous_Chef": {
+        "Roles": [ "Senior", "Professional" ]
+      },
+      "Chef": {
+        "Roles": [ "Senior", "Professional", "DecisionMaker" ]
+      },
+      "Food_Distributer": {
+        "Roles": [ "Senior" ]
+      },
+      "Head_Of_Administration": {
+        "Roles": [ "Manager", "DecisionMaker" ],
+        "Manager" : 8000
       }
-    ],
-    "Manager": {
-      "Name": "Manager",
-      "TranslatedName": "מנהל",
-      "MonthlyWage": 9000
-    },
-    "InRisk": {
-      "Name": "InRisk",
-      "TranslatedName": "עובד בסיכון"
-    },
-    "DecisionMaker": {
-      "Name": "DecisionMaker",
-      "TranslatedName": "מקבל החלטות"
     }
-
-  }
 }

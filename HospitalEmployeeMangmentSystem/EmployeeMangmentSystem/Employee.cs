@@ -9,14 +9,14 @@ namespace HospitalEmployeeMangmentSystem
     {
         public string Name { get; private set; }
         public string Id { get; private set; }
-        public Employee(string Name, string Id)
+
+        public Job EmployeeJob { get; private set; }
+
+        public Employee(string Name, string Id, Job job)
         {
             this.Name = Name;
             this.Id = Id;
-        }
-        public Employee GetEmployee(string Id)
-        {
-            throw new NotImplementedException();
+            this.EmployeeJob = job;
         }
 
         public void AddEmployee(Employee employee)

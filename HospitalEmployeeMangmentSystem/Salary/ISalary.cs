@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HospitalEmployeeMangmentSystem.Salary
+namespace HospitalEmployeeMangmentSystem
 {
     public interface ISalary
     {
         string Salary_EmployeeId { get; }
         int SalaryAmount { get; }
-        void CalculateEmployeeSalary();
+        void CalculateEmployeeSalary(Employee employee);
     }
 }

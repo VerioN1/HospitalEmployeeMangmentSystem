@@ -1,18 +1,27 @@
-﻿using HospitalEmployeeMangmentSystem.Roles.Operations;
-using HospitalEmployeeMangmentSystem.Utilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles
 {
-    public class DecisionMaker : IRole
+    public class DecisionMaker : IRoleHourlyWageBonus
     {
-        public Title Title { get; private set; }
+        private const int MINIMAL_WORKING_HOURS = 50;
+        private const int ROUNDED_UP_HOURS = 200;
+        private const int PERCENTAGE = 50;
+        private static DecisionMaker _instance = new DecisionMaker();
+        private DecisionMaker() { }
+        public static DecisionMaker Instance { get => _instance; }
+        public int Percantage { get; private set; } = PERCENTAGE;
 
-        public void execute(IOperation operation)
+        public double RoleBonusWage(int HoursWorked)
         {
-            operation.Apply(this);
+            double percentage = PERCENTAGE / 100;
+            if (MINIMAL_WORKING_HOURS > HoursWorked)
+            {
+                return 0;
+            }
+            return ROUNDED_UP_HOURS * percentage * DefaultSallaryConstants.MINIMUM_HOURLY_WAGE;
         }
     }
 }

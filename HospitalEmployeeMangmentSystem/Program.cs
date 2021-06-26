@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HospitalEmployeeMangmentSystem.JobMangment;
+using System;
 
 namespace HospitalEmployeeMangmentSystem
 {
@@ -6,7 +7,11 @@ namespace HospitalEmployeeMangmentSystem
     {
         static void Main(string[] args)
         {
-            //StartUp.InjectConfiguration();
+            JobsList jobsList = StartUp.InjectJobsConfiguration();
+            foreach(var job in jobsList.GetAllJobs())
+            {
+                Console.WriteLine(job.Roles[0]);
+            }
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 using System.IO;
-using HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles;
+using System.Linq;
+using System.Collections.Generic;
+using HospitalEmployeeMangmentSystem.JobMangment;
 
 namespace HospitalEmployeeMangmentSystem
 {
@@ -12,22 +14,33 @@ namespace HospitalEmployeeMangmentSystem
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("Config.json", optional: true, reloadOnChange: true);
-
             var config = builder.Build();
             return config;
         }
-        public static void InjectConfiguration()
+        public static JobsList InjectJobsConfiguration()
         {
             var config = LoadConfiguration();
-            var Roles = config.GetSection("Roles");
-            foreach(var Role in Roles.GetChildren())
+            JobsList jobsList = JobsList.Instance;
+            var Jobs = config.GetSection("Jobs");
+            foreach(var Job in Jobs.GetChildren())
             {
-                if(Role.Key == "BasicRoles")
+                List<string> Roles = new List<string>();
+                string JobTitle = (Job.Key);
+                foreach(var Role in Job.GetSection("Roles").AsEnumerable())
                 {
-                    //instantiate Basic Roles
+                    if(Role.Value != null && Role.Value is string)
+                    {
+                        Roles.Add(Role.Value);
+                    }
                 }
-                Console.WriteLine(Role.Key);
+                string JobInRiskBonus = Job.GetSection("InRiskBonus").Value;
+                int Bonus = 0;
+                int.TryParse(JobInRiskBonus, out Bonus);
+                Job job = new Job(JobTitle, Roles, Bonus);
+                jobsList.AddJob(job);
             }
+            return jobsList;
         }
+      
     }
 }
