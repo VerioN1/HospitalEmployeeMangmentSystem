@@ -6,7 +6,7 @@ using System.Text;
 
 namespace HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles
 {
-    interface IRole
+    public interface IRole
     {
         Title Title { get; }
         void execute(IOperation operation);

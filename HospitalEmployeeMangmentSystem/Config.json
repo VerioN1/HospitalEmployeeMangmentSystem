@@ -1,19 +1,35 @@
 ﻿{
-  "BasicRoles": [
-    {
-      "Name": "Junior",
-      "TranslatedName": "עובד זוטר",
-      "Percentage": 0
+  "Roles":{
+    "BasicRoles": [
+      {
+        "Name": "Junior",
+        "TranslatedName": "עובד זוטר",
+        "Percentage": 0
+      },
+      {
+        "Name": "Senior",
+        "TranslatedName": "עובד בכיר",
+        "Percentage": 5
+      },
+      {
+        "Name": "Professional",
+        "TranslatedName": "מומחה",
+        "Percentage": 30
+      }
+    ],
+    "Manager": {
+      "Name": "Manager",
+      "TranslatedName": "מנהל",
+      "MonthlyWage": 9000
     },
-    {
-      "Name": "Senior",
-      "TranslatedName": "עובד בכיר",
-      "Percentage": 5
+    "InRisk": {
+      "Name": "InRisk",
+      "TranslatedName": "עובד בסיכון"
     },
-    {
-      "Name": "Professional",
-      "TranslatedName": "מומחה",
-      "Percentage": 30
+    "DecisionMaker": {
+      "Name": "DecisionMaker",
+      "TranslatedName": "מקבל החלטות"
     }
-  ]
+
+  }
 }

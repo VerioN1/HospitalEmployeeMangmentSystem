@@ -9,10 +9,10 @@ namespace HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles
     public class BasicRole : IRole
     {
         public Title Title { get; private set; }
-        private int _percentage;
+        public int Percentage { get; private set; }
         public BasicRole(int Percentage, string Name, string TranslatedName)
         {
-            this._percentage = Percentage/100;
+            this.Percentage = Percentage/100;
             Title title = new Title(Name, TranslatedName);
             this.Title = title;
         }

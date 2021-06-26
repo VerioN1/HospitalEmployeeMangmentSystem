@@ -7,24 +7,24 @@ namespace HospitalEmployeeMangmentSystem.Roles.Operations
 {
     class CalculateRoleWageOperation : IOperation
     {
+        public void Apply(Manager manager)
+        {
+            Console.WriteLine("manager wage");
+        }
+
         public void Apply(BasicRole basicRole)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("basic wage");
         }
 
         public void Apply(InRisk inRisk)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("in Risk wage");
         }
 
         public void Apply(DecisionMaker decisionMaker)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Apply(Manager manager)
-        {
-            throw new NotImplementedException();
+            Console.WriteLine("DecisionMaker wage");
         }
     }
 }
