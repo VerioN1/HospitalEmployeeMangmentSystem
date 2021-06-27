@@ -4,14 +4,13 @@ using System.Text;
 
 namespace HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles
 {
-    public class InRisk : IRolePureWageBonus
+    public class InRisk : IRoleMonthlyWage
     {
-        private static InRisk _instance = new InRisk();
-        private InRisk() { }
-        public static InRisk Instance { get => _instance; }
-        public double CalculateRoleWage(IJob job, int CurrentSalary)
+        public string Name { get; private set; } = "InRisk";
+        public InRisk() { }
+        public double CalculateRoleWage(Employee employee, double CurrentSalary)
         {
-            var percantage = job.InRiskBonus / 100;
+            double percantage = employee.EmployeeJob.InRiskBonus / 100;
             return CurrentSalary * percantage;
         }
     }

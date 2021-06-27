@@ -7,7 +7,8 @@ namespace HospitalEmployeeMangmentSystem
     public interface ISalary
     {
         string Salary_EmployeeId { get; }
-        int SalaryAmount { get; }
-        void CalculateEmployeeSalary(Employee employee);
+        double SalaryAmount { get; }
+        int WorkingHours { get; }
+        double CalculateEmployeeSalary(Employee employee);
     }
 }

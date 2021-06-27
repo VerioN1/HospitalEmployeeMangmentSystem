@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HospitalEmployeeMangmentSystem.Attendance
+namespace HospitalEmployeeMangmentSystem
 {
     public class Attendance : IAttendance
     {
         public string Attendance_EmployeeId { get; private set; }
-
         private int CurrentMonthAttendedHoursAmount { get; }
         public Attendance(string EmployeeId)
         {

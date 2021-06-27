@@ -4,24 +4,24 @@ using System.Text;
 
 namespace HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles
 {
-    public class DecisionMaker : IRoleHourlyWageBonus
+    public class DecisionMaker : IRoleHourlyWage
     {
         private const int MINIMAL_WORKING_HOURS = 50;
         private const int ROUNDED_UP_HOURS = 200;
         private const int PERCENTAGE = 50;
-        private static DecisionMaker _instance = new DecisionMaker();
-        private DecisionMaker() { }
-        public static DecisionMaker Instance { get => _instance; }
+        public string Name { get; private set; } = "DecisionMaker";
+        
         public int Percantage { get; private set; } = PERCENTAGE;
 
-        public double RoleBonusWage(int HoursWorked)
+
+        public double CalculateRoleWage(int HoursAttended)
         {
             double percentage = PERCENTAGE / 100;
-            if (MINIMAL_WORKING_HOURS > HoursWorked)
+            if (MINIMAL_WORKING_HOURS > HoursAttended)
             {
                 return 0;
             }
-            return ROUNDED_UP_HOURS * percentage * DefaultSallaryConstants.MINIMUM_HOURLY_WAGE;
+            return HoursAttended * percentage * ROUNDED_UP_HOURS;
         }
     }
 }

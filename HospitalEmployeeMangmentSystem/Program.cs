@@ -8,9 +8,12 @@ namespace HospitalEmployeeMangmentSystem
         static void Main(string[] args)
         {
             JobsList jobsList = StartUp.InjectJobsConfiguration();
-            foreach(var job in jobsList.GetAllJobs())
+
+            Console.WriteLine("test \n");
+            
+            foreach(IJob job in jobsList.GetAllJobs())
             {
-                Console.WriteLine(job.Roles[0]);
+               
             }
         }
     }

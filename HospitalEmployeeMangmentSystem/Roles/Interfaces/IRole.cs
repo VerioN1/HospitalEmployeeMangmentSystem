@@ -4,8 +4,8 @@ using System.Text;
 
 namespace HospitalEmployeeMangmentSystem
 {
-    public interface IRolePureWageBonus
+    public interface IRole
     {
-        double CalculateRoleWage(IJob job, int CurrentSalary);
+        string Name { get; }
     }
 }

@@ -1,6 +1,6 @@
-﻿using HospitalEmployeeMangmentSystem.Attendance;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HospitalEmployeeMangmentSystem
@@ -9,15 +9,32 @@ namespace HospitalEmployeeMangmentSystem
     {
         public string Salary_EmployeeId { get; private set; }
 
-        public int SalaryAmount { get; private set; }
-        public Salary(string id)
-        {
+        public double SalaryAmount { get; private set; }
 
+        public int WorkingHours { get; private set; }
+
+        public Salary(string EmployeeId)
+        {
+            this.Salary_EmployeeId = EmployeeId;
+            this.WorkingHours = 9;
+            this.SalaryAmount = 0;
         }
 
-        public void CalculateEmployeeSalary(Employee employee)
+        public double CalculateEmployeeSalary(Employee employee)
         {
-            throw new NotImplementedException();
+            int EmployeeUpdatedAttendance = AttendanceManagmentSystem.Instance.GetEmployeeAttendance(employee.Id).GetEmployeeAttendanceAmount();
+            if (EmployeeUpdatedAttendance == WorkingHours)
+            {
+                return SalaryAmount;
+            }
+            double EmployeeSalary = 0;
+            List<IRole> Roles = RolesList.Instance.GetRolesForJob(employee.EmployeeJob);
+            Roles.Where(x => x is IRoleHourlyWage).Select(Role => (IRoleHourlyWage)Role)
+                .Select(HourlyRole => EmployeeSalary += HourlyRole.CalculateRoleWage(WorkingHours));
+            Roles.Where(x => x is IRoleMonthlyWage).Select(Role => (IRoleMonthlyWage)Role)
+                .Select(HourlyRole => EmployeeSalary += HourlyRole.CalculateRoleWage(employee, EmployeeSalary));
+            this.SalaryAmount = EmployeeSalary;
+            return EmployeeSalary;
         }
     }
 }

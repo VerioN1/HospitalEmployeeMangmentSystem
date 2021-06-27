@@ -4,9 +4,8 @@ using System.Text;
 
 namespace HospitalEmployeeMangmentSystem
 {
-    public interface IRoleHourlyWageBonus
+    public interface IRoleMonthlyWage : IRole
     {
-        int Percantage { get; }
-        double RoleBonusWage(int HoursWorked);
+        double CalculateRoleWage(Employee employee, double CurrentSalary);
     }
 }

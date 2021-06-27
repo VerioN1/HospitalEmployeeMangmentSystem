@@ -3,18 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace HospitalEmployeeMangmentSystem.Roles
+namespace HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles
 {
-    public class Junior : IRoleHourlyWageBonus
+    public class Junior : IRoleHourlyWage
     {
+        public string Name { get; private set; } = "Junior";
         public int Percantage { get; private set; } = 0;
-        private static Junior _instance = new Junior();
-        private Junior() { }
-        public static Junior Instance { get => _instance; }
-        public double RoleBonusWage(int HoursWorked)
+        public Junior() { }
+        public double CalculateRoleWage(int HoursAttended)
         {
             double percantage = Percantage / 100;
-            return percantage * DefaultSallaryConstants.MINIMUM_HOURLY_WAGE * HoursWorked;
+            return percantage * DefaultSallaryConstants.MINIMUM_HOURLY_WAGE * HoursAttended;
         }
+
     }
 }

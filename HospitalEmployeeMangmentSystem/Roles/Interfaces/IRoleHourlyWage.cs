@@ -4,8 +4,8 @@ using System.Text;
 
 namespace HospitalEmployeeMangmentSystem
 {
-    public interface IRolePureWage
+    public interface IRoleHourlyWage : IRole
     {
-        double CalculateRoleWage(IJob job);
+        double CalculateRoleWage(int HoursAttended);
     }
 }

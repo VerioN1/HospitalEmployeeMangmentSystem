@@ -14,7 +14,7 @@ namespace HospitalEmployeeMangmentSystem.JobMangment
         {
             get => _instance;
         }
-        public void AddJob(Job job)
+        public void AddJob(IJob job)
         {
             Jobs.Add(job);
         }

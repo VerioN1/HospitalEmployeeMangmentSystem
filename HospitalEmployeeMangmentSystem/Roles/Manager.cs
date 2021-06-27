@@ -4,15 +4,15 @@ using System.Text;
 
 namespace HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles
 {
-    public class Manager : IRolePureWage
+    public class Manager : IRoleMonthlyWage
     {
-        private static Manager _instance = new Manager();
-        private Manager() { }
-        public static Manager Instance { get => _instance; }
-        public double CalculateRoleWage(IJob job)
-        {
-            return job.ManagerSalary;
-        }
+        public string Name { get; private set; } = "Manager";
+        public Manager() { }
 
+        public double CalculateRoleWage(Employee employee, double CurrentSalary)
+        {
+            double ManagerSalary = employee.EmployeeJob.ManagerSalary;
+            return ManagerSalary;
+        }
     }
 }
