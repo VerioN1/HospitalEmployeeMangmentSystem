@@ -13,12 +13,12 @@ namespace HospitalEmployeeMangmentSystem
         public static SalaryMangmentSystem Instance { get => _instance; }
         public ISalary? GetEmployeeSalary(string id)
         {
-            var employeeSalary = _employees_Salary.First(x => x.Salary_EmployeeId.Contains(id));
-            if(employeeSalary is ISalary)
+            ISalary? employeeSalary = _employees_Salary.Find(x => x.Salary_EmployeeId == id);
+            if(employeeSalary is null)
             {
-                return employeeSalary;
+                return null;
             }
-            return null;
+            return employeeSalary;
         }
         public void AddEmployeeToSalarySystem(string Id)
         {

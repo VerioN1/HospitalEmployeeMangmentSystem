@@ -27,7 +27,7 @@ namespace HospitalEmployeeMangmentSystem
             {
                 return SalaryAmount;
             }
-            double EmployeeSalary = 0;
+            double EmployeeSalary = DefaultSallaryConstants.MINIMUM_HOURLY_WAGE * WorkingHours;
             List<IRole> Roles = RolesList.Instance.GetRolesForJob(employee.EmployeeJob);
             Roles.Where(x => x is IRoleHourlyWage).Select(Role => (IRoleHourlyWage)Role)
                 .Select(HourlyRole => EmployeeSalary += HourlyRole.CalculateRoleWage(WorkingHours));

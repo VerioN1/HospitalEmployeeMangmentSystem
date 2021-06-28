@@ -10,9 +10,9 @@ namespace HospitalEmployeeMangmentSystem
         public string Name { get; private set; }
         public string Id { get; private set; }
 
-        public Job EmployeeJob { get; private set; }
+        public IJob EmployeeJob { get; private set; }
 
-        public Employee(string Name, string Id, Job job)
+        public Employee(string Name, string Id, IJob job)
         {
             this.Name = Name;
             this.Id = Id;

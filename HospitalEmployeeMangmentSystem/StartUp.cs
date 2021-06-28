@@ -17,7 +17,7 @@ namespace HospitalEmployeeMangmentSystem
             var config = builder.Build();
             return config;
         }
-        public static JobsList InjectJobsConfiguration()
+        public static void InjectJobsConfiguration()
         {
             var config = LoadConfiguration();
             JobsList jobsList = JobsList.Instance;
@@ -34,12 +34,14 @@ namespace HospitalEmployeeMangmentSystem
                     }
                 }
                 string JobInRiskBonus = Job.GetSection("InRiskBonus").Value;
-                int Bonus = 0;
-                int.TryParse(JobInRiskBonus, out Bonus);
-                Job job = new Job(JobTitle, Roles, Bonus);
+                int InRiskBonus = 0;
+                int.TryParse(JobInRiskBonus, out InRiskBonus);
+                string JobManagerSalary = Job.GetSection("Manager").Value;
+                int ManagerSalary = 0;
+                int.TryParse(JobManagerSalary, out ManagerSalary);
+                Job job = new Job(JobTitle, Roles, InRiskBonus, ManagerSalary);
                 jobsList.AddJob(job);
             }
-            return jobsList;
         }
       
     }

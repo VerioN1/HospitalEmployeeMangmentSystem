@@ -22,9 +22,9 @@ namespace HospitalEmployeeMangmentSystem.JobMangment
         {
             return Jobs;
         }
-        public IJob GetSpecificJob(string jobTitle)
+        public IJob? GetJobByName(string jobTitle)
         {
-            IJob job = Jobs.FirstOrDefault(x => x.Title.Contains(jobTitle));
+            IJob job = Jobs.FirstOrDefault(job => job.Title == jobTitle);
             return job;
         }
     }

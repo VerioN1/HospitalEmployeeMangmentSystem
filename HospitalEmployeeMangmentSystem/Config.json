@@ -1,33 +1,75 @@
 ﻿{
-    "Jobs": {
-      "Cleaner": {
-        "Roles": [ "Junior" ]
-      },
-      "Toxic_Material_Cleaner": {
-        "Roles": [ "InRisk", "DecisionMaker", "Professional", "Junior" ],
-        "InRiskBonus" : 20
-      },
-      "Senior_Cleaner": {
-        "Roles": [ "Senior" ]
-      },
-      "Shift_Manager_Cleaner": {
-        "Roles": [ "DecisionMaker" ]
-      },
-      "Cooker": {
-        "Roles": [ "Senior" ]
-      },
-      "Sous_Chef": {
-        "Roles": [ "Senior", "Professional" ]
-      },
-      "Chef": {
-        "Roles": [ "Senior", "Professional", "DecisionMaker" ]
-      },
-      "Food_Distributer": {
-        "Roles": [ "Senior" ]
-      },
-      "Head_Of_Administration": {
-        "Roles": [ "Manager", "DecisionMaker" ],
-        "Manager" : 8000
-      }
+  "Jobs": {
+    "Cleaner": {
+      "Roles": [ "Junior" ]
+    },
+    "Toxic Material_Cleaner": {
+      "Roles": [ "InRisk", "DecisionMaker", "Professional", "Junior" ],
+      "InRiskBonus": 20
+    },
+    "Senior Cleaner": {
+      "Roles": [ "Senior" ]
+    },
+    "Shift SuperVisor_Cleaner": {
+      "Roles": [ "DecisionMaker" ]
+    },
+    "Cooker": {
+      "Roles": [ "Senior" ]
+    },
+    "Sous Chef": {
+      "Roles": [ "Senior", "Professional" ]
+    },
+    "Chef": {
+      "Roles": [ "Senior", "Professional", "DecisionMaker" ]
+    },
+    "Food Distributer": {
+      "Roles": [ "Senior" ]
+    },
+    "Head Of Administration": {
+      "Roles": [ "Manager", "DecisionMaker" ],
+      "Manager": 8000
+    },
+    "Medic": {
+      "Roles": [ "Junior" ]
+    },
+    "Paramedic": {
+      "Roles": [ "Junior" ]
+    },
+    "Nurse": {
+      "Roles": [ "Junior" ]
+    },
+    "Central Nurse": {
+      "Roles": [ "Senior", "DecisionMaker" ]
+    },
+    "MidWife": {
+      "Roles": [ "Junior" ]
+    },
+    "Akoz-MidWife": {
+      "Roles": [ "Junior", "Professional" ]
+    },
+    "Junior Doctor": {
+      "Roles": [ "Junior" ]
+    },
+    "Akoz-Junior Doctor": {
+      "Roles": [ "Junior", "Professional" ]
+    },
+    "Doctor": {
+      "Roles": [ "Senior" ]
+    },
+    "Senior Doctor": {
+      "Roles": [ "Senior", "DecisionMaker" ]
+    },
+    "Proffesional Doctor": {
+      "Roles": [ "Senior", "Professional" ]
+    },
+    "Department Vice Manager": {
+      "Roles": [ "Manager", "DecisionMaker" ],
+      "Manager": 9000
+    },
+    "Department Manager": {
+      "Roles": [ "Manager", "DecisionMaker", "InRisk" ],
+      "Manager": 19000,
+      "InRiskBonus": 100
     }
+  }
 }

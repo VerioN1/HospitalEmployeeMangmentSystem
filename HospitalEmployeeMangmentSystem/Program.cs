@@ -1,4 +1,5 @@
 ﻿using HospitalEmployeeMangmentSystem.JobMangment;
+using HospitalEmployeeMangmentSystem.UI;
 using System;
 
 namespace HospitalEmployeeMangmentSystem
@@ -7,14 +8,10 @@ namespace HospitalEmployeeMangmentSystem
     {
         static void Main(string[] args)
         {
-            JobsList jobsList = StartUp.InjectJobsConfiguration();
-
-            Console.WriteLine("test \n");
-            
-            foreach(IJob job in jobsList.GetAllJobs())
-            {
-               
-            }
+            StartUp.InjectJobsConfiguration();
+            ConsoleController.Welcome();
+            ConsoleActions.CreateEmployee("Alon", "1234", "Department Manager");
+            ConsoleValidators.MenuSelectionValidation(ConsoleController.MainMenu());
         }
     }
 }

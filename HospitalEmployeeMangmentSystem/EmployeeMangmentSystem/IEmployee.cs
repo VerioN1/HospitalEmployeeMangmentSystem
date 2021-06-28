@@ -8,7 +8,7 @@ namespace HospitalEmployeeMangmentSystem.EmployeeMangmentSystem
     {
         string Name { get; }
         string Id { get; }
-        Job EmployeeJob { get; } 
+        IJob EmployeeJob { get; } 
         void AddEmployee(Employee employee);
 
     }

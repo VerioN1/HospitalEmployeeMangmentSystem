@@ -28,7 +28,7 @@ namespace HospitalEmployeeMangmentSystem
             }
         }
         public static RolesList Instance { get => _instance; }
-        public List<IRole> GetRolesForJob(Job job)
+        public List<IRole> GetRolesForJob(IJob job)
         {
             List<IRole> Roles = new List<IRole>();
             foreach(string RoleName in job.ReadOnlyRoles)
@@ -48,7 +48,7 @@ namespace HospitalEmployeeMangmentSystem
             {
                 return t;
             }
-            Console.WriteLine("Failed to find Role");
+            Console.WriteLine($"Failed to find Role {RoleName}");
             return null;
         }
     }
