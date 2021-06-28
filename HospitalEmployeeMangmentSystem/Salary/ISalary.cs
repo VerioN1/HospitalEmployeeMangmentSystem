@@ -8,7 +8,6 @@ namespace HospitalEmployeeMangmentSystem
     {
         string Salary_EmployeeId { get; }
         double SalaryAmount { get; }
-        int WorkingHours { get; }
         double CalculateEmployeeSalary(Employee employee);
     }
 }

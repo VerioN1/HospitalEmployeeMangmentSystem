@@ -9,7 +9,7 @@ namespace HospitalEmployeeMangmentSystem.JobMangment
     {
         private static JobsList _instance = new JobsList();
         private JobsList() { }
-        private IList<IJob> Jobs { get; } = new List<IJob>();
+        private List<IJob> Jobs { get; } = new List<IJob>();
         public static JobsList Instance
         {
             get => _instance;
@@ -18,7 +18,7 @@ namespace HospitalEmployeeMangmentSystem.JobMangment
         {
             Jobs.Add(job);
         }
-        public IList<IJob> GetAllJobs()
+        public List<IJob> GetAllJobs()
         {
             return Jobs;
         }

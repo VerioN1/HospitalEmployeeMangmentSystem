@@ -12,12 +12,6 @@ namespace HospitalEmployeeMangmentSystem.UI
             Console.WriteLine("Creating Employee");
             IJob? Job = JobsList.Instance.GetJobByName(JobName);
             EmployeesMangmentSystem.Instance.CreateNewEmployee(Name, Id, Job);
-            var li = EmployeesMangmentSystem.Instance.GetAllEmployees();
-            foreach(var Employeee in li)
-            {
-                Console.WriteLine(Employeee.Name);
-                Console.WriteLine(Employeee.EmployeeJob.Title);
-            }
             Console.ReadKey();
             Console.Clear();
         }

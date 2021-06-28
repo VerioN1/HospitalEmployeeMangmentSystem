@@ -15,7 +15,7 @@ namespace HospitalEmployeeMangmentSystem
         {
             return _employees.AsReadOnly();
         }
-        public void CreateNewEmployee(string Name, string Id, IJob? job)
+        public void CreateNewEmployee(string Name, string Id, IJob? job, int WorkingHours = 0)
         {
             if (job is null)
             {
@@ -25,9 +25,9 @@ namespace HospitalEmployeeMangmentSystem
             {
                 Employee employee = new Employee(Name, Id, job);
                 _employees.Add(employee);
-                AttendanceManagmentSystem.Instance.AddEmployeeToAttendancesList(Id);
+                AttendanceManagmentSystem.Instance.AddEmployeeToAttendancesList(Id, WorkingHours);
                 SalaryMangmentSystem.Instance.AddEmployeeToSalarySystem(Id);
-                Console.WriteLine("success in creating Employee");
+                Console.WriteLine("Created Employee Successfully !");
             }
         }
         public Employee? GetEmployee(string Id)

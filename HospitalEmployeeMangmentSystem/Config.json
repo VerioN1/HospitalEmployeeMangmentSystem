@@ -3,14 +3,14 @@
     "Cleaner": {
       "Roles": [ "Junior" ]
     },
-    "Toxic Material_Cleaner": {
+    "Toxic Materials Cleaner": {
       "Roles": [ "InRisk", "DecisionMaker", "Professional", "Junior" ],
       "InRiskBonus": 20
     },
     "Senior Cleaner": {
       "Roles": [ "Senior" ]
     },
-    "Shift SuperVisor_Cleaner": {
+    "Cleaners Shift SuperVisor": {
       "Roles": [ "DecisionMaker" ]
     },
     "Cooker": {
@@ -67,7 +67,7 @@
       "Manager": 9000
     },
     "Department Manager": {
-      "Roles": [ "Manager", "DecisionMaker", "InRisk" ],
+      "Roles": [ "InRisk", "Manager", "DecisionMaker" ],
       "Manager": 19000,
       "InRiskBonus": 100
     }

@@ -27,10 +27,10 @@ namespace HospitalEmployeeMangmentSystem
             {
                 return SalaryAmount;
             }
-            double EmployeeSalary = DefaultSallaryConstants.MINIMUM_HOURLY_WAGE * WorkingHours;
+            double EmployeeSalary = DefaultSallaryConstants.MINIMUM_HOURLY_WAGE * EmployeeUpdatedAttendance;
             List<IRole> Roles = RolesList.Instance.GetRolesForJob(employee.EmployeeJob);
-            Roles.Where(x => x is IRoleHourlyWage).Select(Role => (IRoleHourlyWage)Role).ToList().ForEach(x => EmployeeSalary += x.CalculateRoleWage(EmployeeUpdatedAttendance));
-            Roles.Where(x => x is IRoleMonthlyWage).Select(Role => (IRoleMonthlyWage)Role).ToList().ForEach(x => { EmployeeSalary += x.CalculateRoleWage(employee, EmployeeSalary); Console.WriteLine(x.Name); });
+            Roles.Where(x => x is IRoleHourlyWage).Select(Role => (IRoleHourlyWage)Role).ToList().ForEach(x => {EmployeeSalary += x.CalculateRoleWage(EmployeeUpdatedAttendance); Console.WriteLine(EmployeeUpdatedAttendance); } );
+            Roles.Where(x => x is IRoleMonthlyWage).Select(Role => (IRoleMonthlyWage)Role).ToList().ForEach(x => EmployeeSalary += x.CalculateRoleWage(employee, EmployeeSalary));
             this.SalaryAmount = EmployeeSalary;
             return EmployeeSalary;
         }

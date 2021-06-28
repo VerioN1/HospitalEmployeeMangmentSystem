@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Collections.Generic;
 using HospitalEmployeeMangmentSystem.JobMangment;
+using System.Xml.Serialization;
+using HospitalEmployeeMangmentSystem.EmployeeMangmentSystem;
 
 namespace HospitalEmployeeMangmentSystem
 {
@@ -16,6 +18,21 @@ namespace HospitalEmployeeMangmentSystem
                 .AddJsonFile("Config.json", optional: true, reloadOnChange: true);
             var config = builder.Build();
             return config;
+        }
+        public static IConfiguration LoadGeneratedEmployees()
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("GeneratedEmployess.json", optional: true, reloadOnChange: true);
+            var Employees = builder.Build().GetSection("Employees");
+
+            XmlSerializer serializer = new XmlSerializer(typeof(List<EmployeeXML>), new XmlRootAttribute("EmployeesList"));
+            string xmlString = System.IO.File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "EmployeesList.xml"));
+            Console.WriteLine(xmlString);
+            StringReader stringReader = new StringReader(xmlString);
+            List<EmployeeXML> EmployeesList = (List<EmployeeXML>)serializer.Deserialize(stringReader);
+            EmployeesList.ForEach(x => Console.WriteLine(x.Name));
+            return Employees;
         }
         public static void InjectJobsConfiguration()
         {
@@ -34,15 +51,16 @@ namespace HospitalEmployeeMangmentSystem
                     }
                 }
                 string JobInRiskBonus = Job.GetSection("InRiskBonus").Value;
-                int InRiskBonus = 0;
-                int.TryParse(JobInRiskBonus, out InRiskBonus);
+                int.TryParse(JobInRiskBonus, out int InRiskBonus);
                 string JobManagerSalary = Job.GetSection("Manager").Value;
-                int ManagerSalary = 0;
-                int.TryParse(JobManagerSalary, out ManagerSalary);
+                int.TryParse(JobManagerSalary, out int ManagerSalary);
                 Job job = new Job(JobTitle, Roles, InRiskBonus, ManagerSalary);
                 jobsList.AddJob(job);
             }
         }
-      
+        public static void InjectGeneratedEmplyeesList()
+        {
+            LoadGeneratedEmployees();
+        }
     }
 }

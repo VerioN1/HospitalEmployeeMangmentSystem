@@ -15,9 +15,9 @@ namespace HospitalEmployeeMangmentSystem
             IAttendance attendace = EmployeesAttendancesList.First(x => x.Attendance_EmployeeId.Contains(EmployeeId));
             return attendace; 
         }
-        public void AddEmployeeToAttendancesList(string EmployeeId)
+        public void AddEmployeeToAttendancesList(string EmployeeId, int HoursWorked = 0)
         {
-            IAttendance attendance = new Attendance(EmployeeId);
+            IAttendance attendance = new Attendance(EmployeeId, HoursWorked);
             EmployeesAttendancesList.Add(attendance);
         }
     }

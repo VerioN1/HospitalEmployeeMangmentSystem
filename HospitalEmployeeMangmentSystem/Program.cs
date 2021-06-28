@@ -9,6 +9,7 @@ namespace HospitalEmployeeMangmentSystem
         static void Main(string[] args)
         {
             StartUp.InjectJobsConfiguration();
+            StartUp.InjectGeneratedEmplyeesList();
             ConsoleController.Welcome();
             ConsoleActions.CreateEmployee("Alon", "1234", "Department Manager");
             ConsoleValidators.MenuSelectionValidation(ConsoleController.MainMenu());

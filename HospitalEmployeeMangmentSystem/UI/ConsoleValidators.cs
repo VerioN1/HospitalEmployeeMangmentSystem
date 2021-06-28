@@ -37,6 +37,8 @@ namespace HospitalEmployeeMangmentSystem.UI
                 return true;
             }catch (Exception)
             {
+                Console.WriteLine("Employee Name Contains INVALID Charchters. Please try again!");
+                Console.ReadKey();
                 return false;
             }
         }
@@ -46,7 +48,7 @@ namespace HospitalEmployeeMangmentSystem.UI
             bool DoesEmployeeExists = EmpMgmtSys.DoesEmployeeExists(employeeId);
             if (DoesEmployeeExists)
             {
-                Console.WriteLine("User Already Exsits With that Id , press enter to retry");
+                Console.WriteLine("Employee Already Exsits With that Id .Please try again!");
                 Console.ReadKey();
                 return false;
             }
@@ -58,6 +60,9 @@ namespace HospitalEmployeeMangmentSystem.UI
             IJob? job = JobMangment.JobsList.Instance.GetJobByName(JobTitle);
             if(job is null)
             {
+                Console.WriteLine("The job you typed does not exsits. Please try again, heres a list of all the jobs again:");
+                JobMangment.JobsList.Instance.GetAllJobs().ForEach(x => Console.WriteLine(x.Title));
+                Console.ReadKey();
                 return false;
             }
             return true;
