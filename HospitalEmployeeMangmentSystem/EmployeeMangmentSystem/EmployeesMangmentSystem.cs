@@ -45,7 +45,7 @@ namespace HospitalEmployeeMangmentSystem
             var MatchingEmployee = _employees.Find(x => String.Equals(x.Id, Id));
             if(MatchingEmployee is null)
             {
-                Console.WriteLine("Got Employee Failed");
+                Console.WriteLine("Couldn't find employee with the given Id, Please try again.");
                 return false;
             }
             return true;

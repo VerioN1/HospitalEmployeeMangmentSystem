@@ -1,6 +1,4 @@
-﻿using HospitalEmployeeMangmentSystem.JobMangment;
-using HospitalEmployeeMangmentSystem.UI;
-using System;
+﻿using HospitalEmployeeMangmentSystem.UI;
 
 namespace HospitalEmployeeMangmentSystem
 {

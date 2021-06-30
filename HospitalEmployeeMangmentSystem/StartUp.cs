@@ -28,10 +28,8 @@ namespace HospitalEmployeeMangmentSystem
 
             XmlSerializer serializer = new XmlSerializer(typeof(List<EmployeeXML>), new XmlRootAttribute("EmployeesList"));
             string xmlString = System.IO.File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "EmployeesList.xml"));
-            Console.WriteLine(xmlString);
             StringReader stringReader = new StringReader(xmlString);
             List<EmployeeXML> EmployeesList = (List<EmployeeXML>)serializer.Deserialize(stringReader);
-            EmployeesList.ForEach(x => Console.WriteLine(x.Name));
             return Employees;
         }
         public static void InjectJobsConfiguration()

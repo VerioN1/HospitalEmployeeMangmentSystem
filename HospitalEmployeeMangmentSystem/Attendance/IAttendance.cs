@@ -7,8 +7,8 @@ namespace HospitalEmployeeMangmentSystem
     public interface IAttendance
     {
         string Attendance_EmployeeId { get; }
-        void CheckIn();
-        void CheckOut();
+        void CheckIn(int Time, int Time2);
+        void CheckOut(int Time, int Time2);
         int GetEmployeeAttendanceAmount();
     }
 }

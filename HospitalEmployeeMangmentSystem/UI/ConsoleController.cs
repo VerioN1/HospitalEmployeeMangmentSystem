@@ -29,6 +29,8 @@ namespace HospitalEmployeeMangmentSystem.UI
         }
         public static void ShowAllEmployees()
         {
+
+            Console.Clear();
             var EmployeesList = EmpMgmtSys.GetAllEmployees();
             foreach(Employee Employee in EmployeesList)
             {
@@ -69,11 +71,9 @@ namespace HospitalEmployeeMangmentSystem.UI
         }
         public static void CalculateEmployeeSalary()
         {
-            string EmployeeIdInput;
-                Console.WriteLine("Employee Salary Calculator \n");
-                Console.WriteLine("Enter Employee Id : ");
-                EmployeeIdInput = Console.ReadLine().ToString();
-                Console.WriteLine($"{EmployeeIdInput} - is type - {EmployeeIdInput.GetType()}");
+            Console.WriteLine("Employee Salary Calculator \n");
+            Console.WriteLine("Enter Employee Id : ");
+            string EmployeeIdInput = Console.ReadLine();
             bool isValid = EmployeesMangmentSystem.Instance.DoesEmployeeExists(EmployeeIdInput);
             if (isValid)
             {
@@ -83,7 +83,43 @@ namespace HospitalEmployeeMangmentSystem.UI
             Console.ReadKey();
             ConsoleValidators.MenuSelectionValidation(MainMenu());
         }
-
+        public static void EmployeeAttendanceSystem()
+        {
+            Console.WriteLine("Employee Attendance System -  \n");
+            Console.WriteLine("Enter Employee Id : ");
+            string EmployeeIdInput = Console.ReadLine();
+            bool isIdValid = EmployeesMangmentSystem.Instance.DoesEmployeeExists(EmployeeIdInput);
+            if (isIdValid)
+            {
+                bool isInputNoValid = true;
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine("What Would you like to do?");
+                    Console.WriteLine("1) Check In ");
+                    Console.WriteLine("2) Check Out ");
+                    Console.WriteLine("3) Show All Employee Attendance Schedual ");
+                    char userInput = Console.ReadKey().KeyChar;
+                    Console.Clear();
+                    switch (userInput)
+                    {
+                        case '1':
+                            isInputNoValid = false;
+                            ConsoleActions.CheckInEmployee(EmployeeIdInput);
+                            break;
+                        case '2':
+                            isInputNoValid = false;
+                            ConsoleActions.CheckOutEmployee(EmployeeIdInput);
+                            break;
+                        case '3':
+                            isInputNoValid = false;
+                            ConsoleActions.ShowAllAttendancesSchedual(EmployeeIdInput);
+                            break;
+                    }
+                } while (isInputNoValid);
+            }
+            ConsoleValidators.MenuSelectionValidation(MainMenu());
+        }
 
     }
 }

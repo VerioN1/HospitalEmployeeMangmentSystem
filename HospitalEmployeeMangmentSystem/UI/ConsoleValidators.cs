@@ -20,6 +20,9 @@ namespace HospitalEmployeeMangmentSystem.UI
                     ConsoleController.ShowAllEmployees();
                     break;
                 case '3':
+                    ConsoleController.EmployeeAttendanceSystem();
+                    break;
+                case '4':
                     ConsoleController.CalculateEmployeeSalary();
                     break;
                 default:
@@ -30,7 +33,7 @@ namespace HospitalEmployeeMangmentSystem.UI
 
         internal static bool ValidEmployeeName(string employeeName)
         {
-            var StrValidator = new StringValidator(1, 14, "123456789.,!@#$%^&*()");
+            var StrValidator = new StringValidator(2, 14, "123456789.,!@#$%^&*()");
             try
             {
                 StrValidator.Validate(employeeName);
