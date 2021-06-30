@@ -32,6 +32,7 @@ namespace HospitalEmployeeMangmentSystem
             }
             TimeSpan CheckOutTime = new TimeSpan(Hours, Minuts, 0);
             int TotalHoursWorked = Math.Abs(Convert.ToInt32(CheckInTimeStamp.Subtract(CheckOutTime).TotalHours));
+            Console.WriteLine($"Checked out At {Hours}:{Minuts}");
             Console.WriteLine($"You Worked For : {TotalHoursWorked} Hours");
             this.CurrentMonthAttendedHoursAmount += TotalHoursWorked;
             EmployeeAttendanceSchedual.Add(new Dictionary<string, int>() { { $"{DateTime.Now.ToString("U")}", TotalHoursWorked } });

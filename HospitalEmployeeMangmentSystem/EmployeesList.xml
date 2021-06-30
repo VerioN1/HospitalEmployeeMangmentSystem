@@ -4,175 +4,210 @@
     <Id>1</Id>
     <Name>Timmi Epton</Name>
     <Job>Toxic Materials Cleaner</Job>
+    <HoursWorked>2</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>2</Id>
     <Name>Austine Addionizio</Name>
     <Job>Toxic Materials Cleaner</Job>
+    <HoursWorked>30</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>3</Id>
     <Name>Ernaline Saltmarsh</Name>
     <Job>Senior Cleaner</Job>
+    <HoursWorked>22</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>4</Id>
     <Name>Daisy Cratchley</Name>
     <Job>Cleaners Shift SuperVisor</Job>
+    <HoursWorked>34</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>5</Id>
     <Name>Wendell Stair</Name>
     <Job>Cooker</Job>
+    <HoursWorked>255</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>6</Id>
     <Name>Miranda Piens</Name>
     <Job>Sous Chef</Job>
+    <HoursWorked>441</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>7</Id>
     <Name>Margit Vigars</Name>
     <Job>Chef</Job>
+    <HoursWorked>120</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>8</Id>
     <Name>Merwyn Padefield</Name>
     <Job>Food Distributer</Job>
+    <HoursWorked>570</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>9</Id>
     <Name>Shandee MacVicar</Name>
     <Job>Food Distributer</Job>
+    <HoursWorked>320</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>10</Id>
     <Name>Shannan Meckiff</Name>
     <Job>Head Of Administration</Job>
+    <HoursWorked>250</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>11</Id>
     <Name>Hertha Thresh</Name>
     <Job>Medic</Job>
+    <HoursWorked>920</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>12</Id>
     <Name>Garnet Blaw</Name>
     <Job>Paramedic</Job>
+    <HoursWorked>1220</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>13</Id>
     <Name>Emmie Crocker</Name>
     <Job>Central Nurse</Job>
+    <HoursWorked>20</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>14</Id>
     <Name>Luca Peskett</Name>
     <Job>Akoz-MidWife</Job>
+    <HoursWorked>205</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>15</Id>
     <Name>Fax Fiddiman</Name>
     <Job>Akoz-MidWife</Job>
+    <HoursWorked>201</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>16</Id>
     <Name>Priscilla Doche</Name>
     <Job>Akoz-Junior Doctor</Job>
+    <HoursWorked>770</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>17</Id>
     <Name>Myrilla Ganford</Name>
     <Job>Akoz-Junior Doctor</Job>
+    <HoursWorked>450</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>18</Id>
     <Name>Rory Sorton</Name>
     <Job>Doctor</Job>
+    <HoursWorked>440</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>19</Id>
     <Name>Stevy Hartley</Name>
     <Job>Senior Doctor</Job>
+    <HoursWorked>220</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>20</Id>
     <Name>Ricki Van den Oord</Name>
     <Job>Proffesional Doctor</Job>
+    <HoursWorked>201</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>21</Id>
     <Name>Ikey Gibbieson</Name>
     <Job>Proffesional Doctor</Job>
+    <HoursWorked>670</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>22</Id>
     <Name>Micaela Yapp</Name>
     <Job>Department Vice Manager</Job>
+    <HoursWorked>2220</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>23</Id>
     <Name>Frederich Matiasek</Name>
     <Job>Department Vice Manager</Job>
+    <HoursWorked>440</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>24</Id>
     <Name>Thom Dymott</Name>
     <Job>Department Manager</Job>
+    <HoursWorked>456</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>25</Id>
     <Name>Shannon Vecard</Name>
     <Job>Department Manager</Job>
+    <HoursWorked>787</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>26</Id>
     <Name>Verina Mantrip</Name>
     <Job>Junior Doctor</Job>
+    <HoursWorked>233</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>27</Id>
     <Name>Alis Choppin</Name>
     <Job>Junior Doctor</Job>
+    <HoursWorked>123</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>28</Id>
     <Name>Boote Beasant</Name>
     <Job>Junior Doctor</Job>
+    <HoursWorked>333</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>29</Id>
     <Name>Berkeley Hillett</Name>
     <Job>MidWife</Job>
+    <HoursWorked>122</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>30</Id>
     <Name>Dar Treece</Name>
     <Job>MidWife</Job>
+    <HoursWorked>433</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>31</Id>
     <Name>Donica Chudleigh</Name>
     <Job>MidWife</Job>
+    <HoursWorked>233</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>32</Id>
     <Name>Melva Scholer</Name>
     <Job>Nurse</Job>
+    <HoursWorked>123</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>33</Id>
     <Name>Judy Burchill</Name>
     <Job>Nurse</Job>
+    <HoursWorked>90</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>34</Id>
     <Name>Foss Dunckley</Name>
     <Job>Head Of Administration</Job>
+    <HoursWorked>232</HoursWorked>
   </EmployeeXML>
   <EmployeeXML>
     <Id>35</Id>
     <Name>Corliss Volkers</Name>
     <Job>Head Of Administration</Job>
+    <HoursWorked>174</HoursWorked>
   </EmployeeXML>
 </EmployeesList>

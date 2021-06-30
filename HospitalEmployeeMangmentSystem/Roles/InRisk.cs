@@ -14,4 +14,8 @@ namespace HospitalEmployeeMangmentSystem.EmployeeMangmentSystem.Roles
             return CurrentSalary * percantage;
         }
     }
+
+    public class Class1
+    {
+    }
 }

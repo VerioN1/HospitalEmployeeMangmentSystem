@@ -18,11 +18,5 @@ namespace HospitalEmployeeMangmentSystem
             this.Id = Id;
             this.EmployeeJob = job;
         }
-
-        public void AddEmployee(Employee employee)
-        {
-            //Add new employeee to EmployeesList
-            throw new NotImplementedException();
-        }
     }
 }

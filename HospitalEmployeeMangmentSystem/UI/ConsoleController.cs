@@ -36,7 +36,9 @@ namespace HospitalEmployeeMangmentSystem.UI
             {
                 Console.WriteLine($"Name: {Employee.Name}");
                 Console.WriteLine($"Employee ID: {Employee.Id}");
-                Console.WriteLine($"Job: {Employee.EmployeeJob.Title} \n");
+                Console.WriteLine($"Job: {Employee.EmployeeJob.Title}");
+                Attendance EmployeeAttendance = AttendanceManagmentSystem.Instance.GetEmployeeAttendance(Employee.Id);
+                Console.WriteLine($"Worked For - {EmployeeAttendance.GetEmployeeAttendanceAmount()} Hours \n");
             }
             Console.WriteLine("Press Enter to Go Back To Main Menu");
             Console.ReadKey();
@@ -69,27 +71,13 @@ namespace HospitalEmployeeMangmentSystem.UI
             ConsoleActions.CreateEmployee(UserInputs[0], UserInputs[1], UserInputs[2]);
             ConsoleValidators.MenuSelectionValidation(MainMenu());
         }
-        public static void CalculateEmployeeSalary()
-        {
-            Console.WriteLine("Employee Salary Calculator \n");
-            Console.WriteLine("Enter Employee Id : ");
-            string EmployeeIdInput = Console.ReadLine();
-            bool isValid = EmployeesMangmentSystem.Instance.DoesEmployeeExists(EmployeeIdInput);
-            if (isValid)
-            {
-                ConsoleActions.ProcessEmployeeSalaryCalculation(EmployeeIdInput);
-            }
-            Console.WriteLine("Failed to Valid");
-            Console.ReadKey();
-            ConsoleValidators.MenuSelectionValidation(MainMenu());
-        }
         public static void EmployeeAttendanceSystem()
         {
             Console.WriteLine("Employee Attendance System -  \n");
             Console.WriteLine("Enter Employee Id : ");
             string EmployeeIdInput = Console.ReadLine();
-            bool isIdValid = EmployeesMangmentSystem.Instance.DoesEmployeeExists(EmployeeIdInput);
-            if (isIdValid)
+            bool isValidEmployee = EmployeesMangmentSystem.Instance.DoesEmployeeExists(EmployeeIdInput);
+            if (isValidEmployee)
             {
                 bool isInputNoValid = true;
                 do
@@ -120,6 +108,23 @@ namespace HospitalEmployeeMangmentSystem.UI
             }
             ConsoleValidators.MenuSelectionValidation(MainMenu());
         }
+        public static void CalculateEmployeeSalary()
+        {
+            Console.WriteLine("Employee Salary Calculator \n");
+            Console.WriteLine("Enter Employee Id : ");
+            string EmployeeIdInput = Console.ReadLine();
+            bool isValidEmployee = EmployeesMangmentSystem.Instance.DoesEmployeeExists(EmployeeIdInput);
+            if (isValidEmployee)
+            {
+                ConsoleActions.ProcessEmployeeSalaryCalculation(EmployeeIdInput);
+                ConsoleValidators.MenuSelectionValidation(MainMenu());
+                return;
+            }
+            Console.WriteLine("Failed to Valid");
+            Console.ReadKey();
+            ConsoleValidators.MenuSelectionValidation(MainMenu());
+        }
+       
 
     }
 }

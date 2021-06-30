@@ -7,13 +7,10 @@ namespace HospitalEmployeeMangmentSystem.UI
 {
     public static class ConsoleActions
     {
-        public static void CreateEmployee(string Name, string Id , string JobName)
+        public static void CreateEmployee(string Name, string Id , string JobName, int HoursWorked = 0)
         {
-            Console.WriteLine("Creating Employee");
             IJob? Job = JobsList.Instance.GetJobByName(JobName);
-            EmployeesMangmentSystem.Instance.CreateNewEmployee(Name, Id, Job);
-            Console.ReadKey();
-            Console.Clear();
+            EmployeesMangmentSystem.Instance.CreateNewEmployee(Name, Id, Job, HoursWorked);
         }
         public static void ProcessEmployeeSalaryCalculation(string EmployeeId)
         {
@@ -32,7 +29,7 @@ namespace HospitalEmployeeMangmentSystem.UI
 
         public static void CheckInEmployee(string EmployeeId)
         {
-            Console.WriteLine("checked in System ");
+            Console.WriteLine("check in System ");
             Attendance EmployeeAttendance = AttendanceManagmentSystem.Instance.GetEmployeeAttendance(EmployeeId);
             var CheckInTime = CheckEmployeeTime();
             if(CheckInTime is null)
@@ -40,12 +37,12 @@ namespace HospitalEmployeeMangmentSystem.UI
                 return;
             }
             EmployeeAttendance.CheckIn(CheckInTime[0], CheckInTime[1]);
-            Console.WriteLine($"Check In At {CheckInTime[0]}:{CheckInTime[1]}");
+            Console.WriteLine($"Checked In At {CheckInTime[0]}:{CheckInTime[1]}");
             Console.ReadKey();
         }
         public static void CheckOutEmployee(string EmployeeId)
         {
-            Console.WriteLine("checked Out System");
+            Console.WriteLine("check Out System");
             Attendance EmployeeAttendance = AttendanceManagmentSystem.Instance.GetEmployeeAttendance(EmployeeId);
             var CheckInTime = CheckEmployeeTime();
             if (CheckInTime is null)
@@ -53,13 +50,18 @@ namespace HospitalEmployeeMangmentSystem.UI
                 return;
             }
             EmployeeAttendance.CheckOut(CheckInTime[0], CheckInTime[1]);
-            Console.WriteLine($"Check out At {CheckInTime[0]}:{CheckInTime[1]}");
             Console.ReadKey();
         }
         public static void ShowAllAttendancesSchedual(string EmployeeId)
         {
             Attendance EmployeeAttendance = AttendanceManagmentSystem.Instance.GetEmployeeAttendance(EmployeeId);
             var EmployeeScheduale = EmployeeAttendance.GetEmployeeSchedual();
+            if(EmployeeScheduale.Count == 0)
+            {
+                Console.WriteLine("Please Check in and out first, going back");
+                Console.ReadKey();
+                return;
+            }
             foreach(var scheduale in EmployeeScheduale)
             {
                 foreach(KeyValuePair<string, int> checkInOut in scheduale)
@@ -78,7 +80,7 @@ namespace HospitalEmployeeMangmentSystem.UI
             Int32.TryParse(HourInput, out int Hours);
             Console.Clear();
             Console.WriteLine("The minute you checked : ");
-            Console.WriteLine("enter number between 1 to 24, for example - if you Checked at 14:23 - enter 23 now");
+            Console.WriteLine("enter number between 1 to 59, for example - if you Checked at 14:23 - enter 23 now");
             string MinutesInput = Console.ReadLine();
             Int32.TryParse(MinutesInput, out int Minutes);
             if (Minutes <= 0 || Hours <= 0 || Minutes > 59 || Hours > 24)

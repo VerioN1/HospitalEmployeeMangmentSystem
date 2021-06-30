@@ -17,9 +17,10 @@ namespace HospitalEmployeeMangmentSystem
         }
         public void CreateNewEmployee(string Name, string Id, IJob? job, int WorkingHours = 0)
         {
-            if (job is null)
+            if (job is null || Id.Length < 1 || Name.Length < 1)
             {
                 Console.WriteLine("Failed Creating Employee");
+                return;
             }
             else
             {
@@ -27,7 +28,6 @@ namespace HospitalEmployeeMangmentSystem
                 _employees.Add(employee);
                 AttendanceManagmentSystem.Instance.AddEmployeeToAttendancesList(Id, WorkingHours);
                 SalaryMangmentSystem.Instance.AddEmployeeToSalarySystem(Id);
-                Console.WriteLine("Created Employee Successfully !");
             }
         }
         public Employee? GetEmployee(string Id)

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using HospitalEmployeeMangmentSystem.JobMangment;
 using System.Xml.Serialization;
 using HospitalEmployeeMangmentSystem.EmployeeMangmentSystem;
+using HospitalEmployeeMangmentSystem.UI;
 
 namespace HospitalEmployeeMangmentSystem
 {
@@ -19,18 +20,27 @@ namespace HospitalEmployeeMangmentSystem
             var config = builder.Build();
             return config;
         }
-        public static IConfiguration LoadGeneratedEmployees()
+        public static void InjectGeneratedEmplyeesList()
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("GeneratedEmployess.json", optional: true, reloadOnChange: true);
             var Employees = builder.Build().GetSection("Employees");
-
-            XmlSerializer serializer = new XmlSerializer(typeof(List<EmployeeXML>), new XmlRootAttribute("EmployeesList"));
-            string xmlString = System.IO.File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "EmployeesList.xml"));
-            StringReader stringReader = new StringReader(xmlString);
-            List<EmployeeXML> EmployeesList = (List<EmployeeXML>)serializer.Deserialize(stringReader);
-            return Employees;
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<EmployeeXML>), new XmlRootAttribute("EmployeesList"));
+                string xmlString = System.IO.File.ReadAllText(Path.Combine(Environment.CurrentDirectory, "EmployeesList.xml"));
+                StringReader stringReader = new StringReader(xmlString);
+                List<EmployeeXML> EmployeesList = (List<EmployeeXML>)serializer.Deserialize(stringReader);
+                EmployeesList.ForEach(employee => ConsoleActions.CreateEmployee(employee.Name, employee.Id, employee.Job, employee.HoursWorked));
+                Console.WriteLine("Injected All Employees from XML !");
+                Console.ReadKey();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error While parsing XML, Employees were'nt injected : {e}");
+                Console.ReadKey();
+            }
         }
         public static void InjectJobsConfiguration()
         {
@@ -55,10 +65,6 @@ namespace HospitalEmployeeMangmentSystem
                 Job job = new Job(JobTitle, Roles, InRiskBonus, ManagerSalary);
                 jobsList.AddJob(job);
             }
-        }
-        public static void InjectGeneratedEmplyeesList()
-        {
-            LoadGeneratedEmployees();
         }
     }
 }
